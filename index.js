@@ -18,6 +18,10 @@ app.use(express.static('assets'));
 //Middleware for using express ejs layouts
 app.use(expressLayouts);
 
+//Extract styles and scripts from different pages
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
 //Route for homepage
 app.use('/', require('./routes'));
 
