@@ -1,5 +1,6 @@
-//Requiring express and path
+//Requiring express and express ejs layouts
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const port = 8000;
 
 //Database connections and import
@@ -13,6 +14,9 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.urlencoded());
 app.use(express.static('assets'));
+
+//Middleware for using express ejs layouts
+app.use(expressLayouts);
 
 //Route for homepage
 app.use('/', require('./routes'));
