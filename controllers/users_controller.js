@@ -78,3 +78,8 @@ module.exports.createSession = function(req, res){
         }
     });
 }
+
+module.exports.removeSession = function(req, res){
+    res.clearCookie('user_id');
+    res.redirect('back');
+}
