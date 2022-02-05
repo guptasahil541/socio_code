@@ -15,3 +15,11 @@ module.exports.signUp = function(req, res){
         title: 'Socio_Code | Sign Up'
     });
 }
+
+module.exports.create = function(req, res){
+    //TODO later
+}
+
+module.exports.createSession = function(req, res){
+    //TODO later
+}
