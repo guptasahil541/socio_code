@@ -1,6 +1,7 @@
 //Requiring express and express ejs layouts
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const cookieParser = require('cookie-parser');
 const port = 8000;
 
 //Database connections and import
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(express.urlencoded());
 app.use(express.static('assets'));
+app.use(cookieParser());
 
 //Middleware for using express ejs layouts
 app.use(expressLayouts);
