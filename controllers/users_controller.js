@@ -43,5 +43,21 @@ module.exports.create = function(req, res){
 }
 
 module.exports.createSession = function(req, res){
-    //TODO later
+    User.findOne({email: req.body.email}, function(err, user){
+        if(err){
+            console.log(err);
+        }
+        if(user){
+            if(user.password != req.body.password){
+                return res.redirect('back');
+            }
+            else{
+                res.cookie('user_id', user.id);
+                return res.redirect('/users/profile');
+            }
+        }
+        else{
+            return res.redirect('back');
+        }
+    });
 }
