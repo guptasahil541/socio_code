@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const passport = require('passport');
 
 module.exports.profile = function(req, res){
     return res.render('user_profile', {
@@ -7,15 +8,21 @@ module.exports.profile = function(req, res){
 }
 
 module.exports.signIn = function(req, res){
-    return res.render('user_sign_in', {
-        title: 'Socio_Code | Sign In'
-    });
+    if(req.isAuthenticated() == false){
+        return res.render('user_sign_in', {
+            title: 'Socio_Code | Sign In'
+        });
+    }
+    return res.redirect('/users/profile');
 }
 
 module.exports.signUp = function(req, res){
-    return res.render('user_sign_up', {
-        title: 'Socio_Code | Sign Up'
-    });
+    if(req.isAuthenticated() == false){
+        return res.render('user_sign_up', {
+            title: 'Socio_Code | Sign Up'
+        });
+    }
+    return res.redirect('/users/profile');
 }
 
 module.exports.create = function(req, res){

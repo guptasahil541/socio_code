@@ -11,6 +11,7 @@ const passportLocal = require('./config/passport-local-strategy');
 
 //Database connections and import
 const db = require('./config/mongoose');
+const MongoStore = require('connect-mongo');
 
 //Setting app
 const app = express();
@@ -43,7 +44,14 @@ app.use(session({
     resave: false,
     cookie: {
         maxAge: (1000 * 60 * 100)
-    }
+    },
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://localhost:27017/socio_code',
+        autoRemove: "disabled"
+    },
+    function(err){
+        console.log(err);
+    })
 }));
 
 app.use(passport.initialize());
