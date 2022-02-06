@@ -48,6 +48,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 
 //Route for homepage
 app.use('/', require('./routes'));
