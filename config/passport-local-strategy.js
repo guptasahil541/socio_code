@@ -17,10 +17,12 @@ function(email, password, done){
             console.log(err);
             return done(err);
         }
+        //If user is not found or password don't match
         if(!user || user.password != password){
             console.log('Invalid username/password');
             return done(null, false);
         }
+        //If user is found
         return done(null, user);
     });
 }));

@@ -4,25 +4,50 @@ const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
 const port = 8000;
 
+//Requiring files for user session
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
 //Database connections and import
 const db = require('./config/mongoose');
 
 //Setting app
 const app = express();
 
-//Setting view engine as ejs and static files directory
-app.set('view engine', 'ejs');
-app.set('views', './views');
+//For string and query params
 app.use(express.urlencoded());
-app.use(express.static('assets'));
+
+//For storing and editing cookies
 app.use(cookieParser());
+
+//For including static files like css, js, images etc.
+app.use(express.static('assets'));
 
 //Middleware for using express ejs layouts
 app.use(expressLayouts);
 
+//Setting view engine as ejs and static files directory
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
 //Extract styles and scripts from different pages
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
+
+app.use(session({
+    name: "socio_code",
+    //TODO change before deployment
+    secret: "blahsomething",
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: (1000 * 60 * 100)
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Route for homepage
 app.use('/', require('./routes'));
