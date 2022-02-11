@@ -1,7 +1,27 @@
+const Post = require('../models/post');
+
 module.exports.home = function(req, res){
     // console.log(req.cookies);
     // res.cookie('user_id', 23);
-    return res.render('home', {
-        title: 'home'
+    // Post.find({}, function(err, post){
+    //     if(err){
+    //         console.log(err);
+    //         return;
+    //     }
+    //     return res.render('home', {
+    //         title: 'home',
+    //         post: post
+    //     });
+    // });
+
+    Post.find({}).populate('user').exec(function(err, post){
+        if(err){
+            console.log(err);
+            return;
+        }
+        return res.render('home', {
+            title: 'home',
+            post: post
+        });
     });
 }
