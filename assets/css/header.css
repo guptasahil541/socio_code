@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  background-color: #0059ff;
+  padding: 20px 60px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header ul {
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+
+header li {
+  margin-left: 20px;
+}
+
+header li a {
+  color: white;
+  text-decoration: none;
+}
+
+header li a:hover {
+  color: #d1d1d1;
+}

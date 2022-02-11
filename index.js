@@ -2,6 +2,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
+const sassMiddleware = require('node-sass-middleware');
 const port = 8000;
 
 //Requiring files for user session
@@ -18,6 +19,16 @@ const app = express();
 
 //For string and query params
 app.use(express.urlencoded());
+
+//Node scss middleware
+app.use(sassMiddleware({
+    /* Options */
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'expanded',
+    prefix:  '/css'  
+}));
 
 //For storing and editing cookies
 app.use(cookieParser());
