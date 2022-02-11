@@ -14,14 +14,14 @@ module.exports.home = function(req, res){
     //     });
     // });
 
-    Post.find({}).populate('user').exec(function(err, post){
+    Post.find({}).populate('user').exec(function(err, posts){
         if(err){
             console.log(err);
             return;
         }
         return res.render('home', {
             title: 'home',
-            post: post
+            posts: posts
         });
     });
 }
