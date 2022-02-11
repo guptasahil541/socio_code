@@ -8,7 +8,7 @@
         </form>
     <% } %> 
     
-    <% for(let post of posts) { %>
+    <% for(post of posts) { %>
         <p><%= post.content %></p>
         <p><%= post.user.name %> </p>
         <div class="post-comments-container">
@@ -19,6 +19,16 @@
                     <button type="submit">Add Comment</button>
                 </form>
             <% } %> 
+            <div class="post-comments">
+                <ul id="post-comments-<%= post._id %> ">
+                    <% for(comment of post.comments){ %> 
+                        <p>
+                            <%= comment.content %> 
+                        </p>
+                        <p><%= comment.user.name %> </p>
+                    <% } %> 
+                </ul>
+            </div>
         </div>
     <% } %> 
 </section>
