@@ -1,3 +1,8 @@
+#feed-posts > ul {
+  padding: 0;
+  list-style: none;
+}
+
 .posts-container {
   background-color: white;
   padding: 20px 40px;
@@ -24,6 +29,7 @@
 
 .posts-container .post-comments ul {
   padding: 0;
+  list-style: none;
 }
 
 .posts-container .post-comments .comment-user-name {

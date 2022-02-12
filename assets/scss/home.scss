@@ -1,3 +1,10 @@
+#feed-posts > {
+    ul{
+        padding: 0;
+        list-style: none;
+    }
+}
+
 .posts-container{
     background-color: white;
     padding: 20px 40px;
@@ -18,13 +25,18 @@
     }
 
     .post-comments{
+
         font-size: 14px;
+
         ul{
             padding: 0;
+            list-style: none;
         }
+
         .comment-user-name{
             font-weight: bold;
         }
+        
         .comment-content{
             margin-top: -5px;
             margin-bottom: 30px;

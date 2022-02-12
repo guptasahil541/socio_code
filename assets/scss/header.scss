@@ -5,6 +5,14 @@ header{
     justify-content: space-between;
     align-items: center;
     color: white;
+
+    a{
+        color: white;
+        text-decoration: none;
+        &:hover{
+            color: rgb(209, 209, 209);
+        }
+    }
     
     h2{
         margin: 0;
@@ -18,12 +26,5 @@ header{
     
     li{
         margin-left: 20px;
-        a{
-            color: white;
-            text-decoration: none;
-            &:hover{
-                color: rgb(209, 209, 209);
-            }
-        }
     }
 }

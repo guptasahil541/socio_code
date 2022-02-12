@@ -7,6 +7,15 @@ header {
   color: white;
 }
 
+header a {
+  color: white;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #d1d1d1;
+}
+
 header h2 {
   margin: 0;
 }
@@ -19,13 +28,4 @@ header ul {
 
 header li {
   margin-left: 20px;
-}
-
-header li a {
-  color: white;
-  text-decoration: none;
-}
-
-header li a:hover {
-  color: #d1d1d1;
 }
