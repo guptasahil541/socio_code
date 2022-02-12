@@ -1,0 +1,105 @@
+.posts-container {
+  background-color: white;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.posts-container textarea[name="content"] {
+  background-color: red;
+}
+
+.posts-container .post-user-name {
+  font-weight: bold;
+}
+
+.posts-container .post-content {
+  margin-bottom: 70px;
+}
+
+.posts-container hr {
+  opacity: 0.2;
+  margin-bottom: 30px;
+}
+
+.posts-container .post-comments {
+  font-size: 14px;
+}
+
+.posts-container .post-comments ul {
+  padding: 0;
+}
+
+.posts-container .post-comments .comment-user-name {
+  font-weight: bold;
+}
+
+.posts-container .post-comments .comment-content {
+  margin-top: -5px;
+  margin-bottom: 30px;
+}
+
+#new-posts-form textarea{
+  width: 100%;
+  border: none;
+  padding: 30px;
+  font-size: 16px;
+  font-family: sans-serif;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+#new-posts-form button{
+  padding: 20px 50px;
+  background-color: rgb(0, 76, 255);
+  color: white;
+  border: none;
+  font-family: sans-serif;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-bottom: 50px;
+  transition: 0.3s ease-in-out;
+}
+
+#new-posts-form button:hover{
+  
+  background-color: rgb(4, 0, 255);
+  cursor: pointer;
+
+}
+
+#create-comment-form input[type="text"]{
+  padding: 15px 30px;
+  background-color: rgb(235, 235, 235);
+  border: none;
+  box-sizing: border-box;
+  width: 92%;
+  border-radius: 30px;
+  font-size: 15px;
+  font-family: sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
+#create-comment-form input[type="text"]:focus{
+  background-color: white;
+}
+
+#create-comment-form button{
+  padding: 15px 19.5px;
+  border-radius: 50%;
+  border: none;
+  font-size: 15px;
+  font-family: sans-serif;
+  background-color: rgb(0, 76, 255);
+  color: white;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+#create-comment-form button:hover{
+  
+  background-color: rgb(4, 0, 255);
+  cursor: pointer;
+
+}

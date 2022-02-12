@@ -1,33 +1,35 @@
-<h1><%= title %></h1>
+<link rel="stylesheet" href="/css/home.css">
 
 <section id="feed-posts">
     <% if(locals.user){ %> 
+        <h3>Create New Post</h3>
         <form action="/posts/create" id="new-posts-form" method="POST">
             <textarea name="content" cols="30" rows="10"></textarea>
             <button type="submit">Add Post</button>
         </form>
     <% } %> 
-    
+    <h3>New Posts</h3>
     <% for(post of posts) { %>
-        <p><%= post.content %></p>
-        <p><%= post.user.name %> </p>
-        <div class="post-comments-container">
-            <% if(locals.user){ %> 
-                <form action="/comments/create" method="post">
-                    <input type="text" name="content" placeholder="Enter comment">
-                    <input type="hidden" name="post" value="<%= post._id %>">
-                    <button type="submit">Add Comment</button>
-                </form>
-            <% } %> 
-            <div class="post-comments">
-                <ul id="post-comments-<%= post._id %> ">
-                    <% for(comment of post.comments){ %> 
-                        <p>
-                            <%= comment.content %> 
-                        </p>
-                        <p><%= comment.user.name %> </p>
-                    <% } %> 
-                </ul>
+        <div class="posts-container">
+            <p class="post-user-name"><%= post.user.name %> </p>
+            <p class="post-content"><%= post.content %></p>
+            <hr>
+            <div class="post-comments-container">
+                <div class="post-comments">
+                    <ul id="post-comments-<%= post._id %> ">
+                        <% for(comment of post.comments){ %> 
+                            <p class="comment-user-name"><%= comment.user.name %></p>
+                            <p class="comment-content"><%= comment.content %></p>
+                        <% } %> 
+                    </ul>
+                </div>
+                <% if(locals.user){ %> 
+                    <form action="/comments/create" id="create-comment-form" method="post">
+                        <input type="text" name="content" placeholder="Enter comment">
+                        <input type="hidden" name="post" value="<%= post._id %>">
+                        <button type="submit">+</button>
+                    </form>
+                <% } %> 
             </div>
         </div>
     <% } %> 
